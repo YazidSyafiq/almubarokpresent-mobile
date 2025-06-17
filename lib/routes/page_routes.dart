@@ -6,11 +6,15 @@ import 'package:almubarok_present/pages/attendance/check_in_check_out/check_in_c
 import 'package:almubarok_present/pages/attendance/check_in_check_out/check_in_check_out_page.dart';
 import 'package:almubarok_present/pages/attendance/register_face/register_face_binding.dart';
 import 'package:almubarok_present/pages/attendance/register_face/register_face_page.dart';
+import 'package:almubarok_present/pages/bottom_nav_bar/nav_tab_binding.dart';
+import 'package:almubarok_present/pages/bottom_nav_bar/nav_tab_page.dart';
 import 'package:almubarok_present/pages/change_password/change_password_binding.dart';
 import 'package:almubarok_present/pages/change_password/change_password_page.dart';
 import 'package:almubarok_present/pages/history/history_binding.dart';
 import 'package:almubarok_present/pages/history/history_page.dart';
 import 'package:almubarok_present/pages/history/history_year/detail_attendance_per_month.dart';
+import 'package:almubarok_present/pages/home/home_binding.dart';
+import 'package:almubarok_present/pages/home/home_page.dart';
 import 'package:almubarok_present/pages/leave/detail_leave/detail_leave_page.dart';
 import 'package:almubarok_present/pages/leave/leave_binding.dart';
 import 'package:almubarok_present/pages/leave/leave_page.dart';
@@ -119,6 +123,16 @@ class PageRoutes {
         check: Get.arguments['check'] ?? '',
       ),
       binding: CheckInCheckOutBinding(),
+    ),
+    GetPage(
+      name: PageName.home,
+      page: () => HomePage(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: PageName.navTab,
+      page: () => NavTabPage(),
+      binding: NavTabBinding(),
     ),
   ];
 }
