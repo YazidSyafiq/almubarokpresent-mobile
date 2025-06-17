@@ -1,7 +1,16 @@
 import 'package:almubarok_present/pages/about/about_binding.dart';
 import 'package:almubarok_present/pages/about/about_page.dart';
+import 'package:almubarok_present/pages/attendance/attendance_binding.dart';
+import 'package:almubarok_present/pages/attendance/attendance_page.dart';
+import 'package:almubarok_present/pages/attendance/check_in_check_out/check_in_check_out_binding.dart';
+import 'package:almubarok_present/pages/attendance/check_in_check_out/check_in_check_out_page.dart';
+import 'package:almubarok_present/pages/attendance/register_face/register_face_binding.dart';
+import 'package:almubarok_present/pages/attendance/register_face/register_face_page.dart';
 import 'package:almubarok_present/pages/change_password/change_password_binding.dart';
 import 'package:almubarok_present/pages/change_password/change_password_page.dart';
+import 'package:almubarok_present/pages/history/history_binding.dart';
+import 'package:almubarok_present/pages/history/history_page.dart';
+import 'package:almubarok_present/pages/history/history_year/detail_attendance_per_month.dart';
 import 'package:almubarok_present/pages/leave/detail_leave/detail_leave_page.dart';
 import 'package:almubarok_present/pages/leave/leave_binding.dart';
 import 'package:almubarok_present/pages/leave/leave_page.dart';
@@ -82,6 +91,34 @@ class PageRoutes {
       name: PageName.requestLeave,
       page: () => RequestLeavePage(),
       binding: RequestLeaveBinding(),
+    ),
+    GetPage(
+      name: PageName.history,
+      page: () => HistoryPage(),
+      binding: HistoryBinding(),
+    ),
+    GetPage(
+      name: PageName.historyDetail,
+      page: () => DetailAttendancePerMonth(
+        month: Get.arguments['month'] ?? '',
+      ),
+    ),
+    GetPage(
+      name: PageName.attendance,
+      page: () => AttendancePage(),
+      binding: AttendanceBinding(),
+    ),
+    GetPage(
+      name: PageName.registerFace,
+      page: () => RegisterFacePage(),
+      binding: RegisterFaceBinding(),
+    ),
+    GetPage(
+      name: PageName.checkInCheckOut,
+      page: () => CheckInCheckOutPage(
+        check: Get.arguments['check'] ?? '',
+      ),
+      binding: CheckInCheckOutBinding(),
     ),
   ];
 }
