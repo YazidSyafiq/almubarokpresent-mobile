@@ -1,0 +1,5 @@
+package com.almubarok.present.yazid_syafiq
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity()

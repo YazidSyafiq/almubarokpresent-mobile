@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "569589138924",
+    "project_id": "al-mubarok-present",
+    "storage_bucket": "al-mubarok-present.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569589138924:android:4aef44eff9bda873166cc9",
+        "android_client_info": {
+          "package_name": "com.almubarok.present.yazid_syafiq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnIu2tEq28RqW0W9CBJGaIx3ZZTqIVxOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
