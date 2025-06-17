@@ -1,5 +1,6 @@
 import 'package:almubarok_present/controllers/initial_controller.dart';
 import 'package:almubarok_present/models/profile_response_model.dart';
+import 'package:almubarok_present/pages/bottom_nav_bar/nav_tab_controller.dart';
 import 'package:almubarok_present/resources/resources.dart';
 import 'package:almubarok_present/services/api/auth_service.dart';
 import 'package:almubarok_present/services/api/profile_service.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
+  NavTabController navTabController = Get.find();
   Rx<ProfileResponseModel> profile = ProfileResponseModel().obs;
   RxBool isLoadingGetProfile = false.obs;
   InitialController initialController = Get.find();

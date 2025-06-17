@@ -1,4 +1,5 @@
 import 'package:almubarok_present/models/leave_response_model.dart';
+import 'package:almubarok_present/pages/bottom_nav_bar/nav_tab_controller.dart';
 import 'package:almubarok_present/resources/resources.dart';
 import 'package:almubarok_present/services/api/leave_service.dart';
 import 'package:almubarok_present/widgets/snackbar_widget.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide FormData;
 
 class LeaveController extends GetxController {
+  NavTabController navTabController = Get.find();
   LeaveResponseModel leaveResponseModel = LeaveResponseModel();
   LeaveResponseModel leaveResponseModelDetail = LeaveResponseModel();
 

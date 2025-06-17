@@ -20,60 +20,70 @@ class LeavePage extends StatelessWidget {
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
           controller.getLeave();
         });
-        return Scaffold(
-          backgroundColor: ColorApp.white,
-          appBar: AppBarWidget(
-            title: 'Leave',
-            leadingIcon: false,
-          ),
-          body: Obx(
-            () {
-              if (controller.isLoadingGetLeave.value) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: ColorApp.colorPrimary,
-                  ),
-                );
-              } else if (controller.leaveResponseModel.data == null) {
-                return NotFoundWidget();
-              } else {
-                return Padding(
-                  padding: EdgeInsets.only(top: 1.h),
-                  child: ListView.builder(
-                    itemCount: controller.leaveResponseModel.data?.length ?? 0,
-                    itemBuilder: (context, index) {
-                      final data = controller.leaveResponseModel.data?[index];
+        return PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) {
+            if (!didPop) {
+              controller.navTabController.changeTabIndex(0);
+              Get.toNamed(PageName.navTab);
+            }
+          },
+          child: Scaffold(
+            backgroundColor: ColorApp.white,
+            appBar: AppBarWidget(
+              title: 'Leave',
+              leadingIcon: false,
+            ),
+            body: Obx(
+              () {
+                if (controller.isLoadingGetLeave.value) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      color: ColorApp.colorPrimary,
+                    ),
+                  );
+                } else if (controller.leaveResponseModel.data == null) {
+                  return NotFoundWidget();
+                } else {
+                  return Padding(
+                    padding: EdgeInsets.only(top: 1.h),
+                    child: ListView.builder(
+                      itemCount:
+                          controller.leaveResponseModel.data?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        final data = controller.leaveResponseModel.data?[index];
 
-                      return ItemListLeaveWidget(
-                        date: data?.date,
-                        status: data?.status,
-                        onTap: () {
-                          Get.toNamed(
-                            PageName.leaveDetail,
-                            arguments: {
-                              'day': DateFormatConverter.convertDayFormat(
-                                  data?.date),
-                              'date': DateFormatConverter.convertDateFormat(
-                                  data?.date),
-                              'status': data?.status ?? '-',
-                              'reason': data?.reason ?? '-',
-                              'note': data?.note ?? '-',
-                            },
-                          );
-                        },
-                      );
-                    },
-                  ),
+                        return ItemListLeaveWidget(
+                          date: data?.date,
+                          status: data?.status,
+                          onTap: () {
+                            Get.toNamed(
+                              PageName.leaveDetail,
+                              arguments: {
+                                'day': DateFormatConverter.convertDayFormat(
+                                    data?.date),
+                                'date': DateFormatConverter.convertDateFormat(
+                                    data?.date),
+                                'status': data?.status ?? '-',
+                                'reason': data?.reason ?? '-',
+                                'note': data?.note ?? '-',
+                              },
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  );
+                }
+              },
+            ),
+            floatingActionButton: ButtonRequestWidget(
+              onTap: () {
+                Get.toNamed(
+                  PageName.requestLeave,
                 );
-              }
-            },
-          ),
-          floatingActionButton: ButtonRequestWidget(
-            onTap: () {
-              Get.toNamed(
-                PageName.requestLeave,
-              );
-            },
+              },
+            ),
           ),
         );
       },
