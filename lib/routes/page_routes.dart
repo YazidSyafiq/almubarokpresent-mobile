@@ -2,6 +2,11 @@ import 'package:almubarok_present/pages/about/about_binding.dart';
 import 'package:almubarok_present/pages/about/about_page.dart';
 import 'package:almubarok_present/pages/change_password/change_password_binding.dart';
 import 'package:almubarok_present/pages/change_password/change_password_page.dart';
+import 'package:almubarok_present/pages/leave/detail_leave/detail_leave_page.dart';
+import 'package:almubarok_present/pages/leave/leave_binding.dart';
+import 'package:almubarok_present/pages/leave/leave_page.dart';
+import 'package:almubarok_present/pages/leave/request_leave/request_leave_binding.dart';
+import 'package:almubarok_present/pages/leave/request_leave/request_leave_page.dart';
 import 'package:almubarok_present/pages/login/login_binding.dart';
 import 'package:almubarok_present/pages/login/login_page.dart';
 import 'package:almubarok_present/pages/onboarding/on_boarding_binding.dart';
@@ -57,6 +62,26 @@ class PageRoutes {
       name: PageName.changePassword,
       page: () => ChangePasswordPage(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: PageName.leave,
+      page: () => LeavePage(),
+      binding: LeaveBinding(),
+    ),
+    GetPage(
+      name: PageName.leaveDetail,
+      page: () => DetailLeavePage(
+        day: Get.arguments['day'] ?? '',
+        date: Get.arguments['date'] ?? '',
+        status: Get.arguments['status'] ?? '',
+        reason: Get.arguments['reason'] ?? '',
+        note: Get.arguments['note'] ?? '',
+      ),
+    ),
+    GetPage(
+      name: PageName.requestLeave,
+      page: () => RequestLeavePage(),
+      binding: RequestLeaveBinding(),
     ),
   ];
 }

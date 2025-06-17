@@ -19,7 +19,7 @@ class InitialController extends GetxController {
     if (token == null && firstInstall == false) {
       Get.offAllNamed(PageName.login);
     } else {
-      Get.offAllNamed(PageName.profile);
+      Get.offAllNamed(PageName.leave);
     }
   }
 
