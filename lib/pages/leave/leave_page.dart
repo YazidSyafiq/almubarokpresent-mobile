@@ -42,7 +42,8 @@ class LeavePage extends StatelessWidget {
                       color: ColorApp.colorPrimary,
                     ),
                   );
-                } else if (controller.leaveResponseModel.data == null) {
+                } else if (controller.leaveResponseModel.data == null ||
+                    controller.leaveResponseModel.data?.isEmpty == true) {
                   return NotFoundWidget();
                 } else {
                   return Padding(

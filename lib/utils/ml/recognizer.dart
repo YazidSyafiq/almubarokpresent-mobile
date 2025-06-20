@@ -95,7 +95,7 @@ class Recognizer {
       faceEmbedding.split(',').map((e) => double.parse(e)).toList(),
     );
     debugPrint('distance = ${pair.distance}');
-    if (pair.distance < 0.9) {
+    if (pair.distance < 0.95) {
       return true;
     } else {
       return false;
