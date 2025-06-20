@@ -18,7 +18,7 @@ class SplashController extends GetxController {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        // initialController.setup();
+        initialController.setup();
       },
     );
   }
