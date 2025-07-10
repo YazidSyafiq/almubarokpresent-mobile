@@ -47,9 +47,9 @@ class AttendanceController extends GetxController {
   @override
   void onInit() async {
     startClock();
+    await determinePosition();
     await getSetupAttendance();
     await getAttendanceToday();
-    await determinePosition();
     await bannedAkun();
 
     super.onInit();
